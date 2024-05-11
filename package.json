@@ -4,13 +4,6 @@
   "description": "Express.js middleware for creating Yandex Zen RSS feed.",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
-    "test-watch": "jest --watch",
-    "test-coverage": "jest --coverage",
-    "test-verbose": "jest --verbose",
-    "coveralls": "jest --coverage --coverageReporters=text-lcov | ./node_modules/coveralls/bin/coveralls.js",
-    "snyk-protect": "snyk protect",
-    "prepare": "npm run snyk-protect"
   },
   "repository": {
     "type": "git",
@@ -19,8 +12,8 @@
   "keywords": [
     "yandex",
     "zen",
-    "expressjs",
-    "middleware",
+    "dzen",
+    "feed",
     "rss"
   ],
   "author": "Ismail Valiev (Konrad Molitor)",
@@ -29,19 +22,11 @@
     "url": "https://github.com/konrad-molitor/zen-feed/issues"
   },
   "homepage": "https://github.com/konrad-molitor/zen-feed#readme",
-  "devDependencies": {
-    "cheerio": "^1.0.0-rc.3",
-    "coveralls": "^3.0.6",
-    "express": "^4.17.1",
-    "jest": "^24.9.0",
-    "supertest": "^4.0.2"
-  },
+  "devDependencies": {},
   "dependencies": {
     "cheerio": "^1.0.0-rc.3",
     "mime": "^2.5.2",
-    "sanitize-html": "^2.3.3",
-    "xml-js": "^1.6.11",
-    "snyk": "^1.685.0"
-  },
-  "snyk": true
+    "sanitize-html": "^2.13.0",
+    "xml-js": "^1.6.11"
+  }
 }

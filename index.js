@@ -8,28 +8,26 @@ const {serveRss} = require('./modules/generateFeed');
 
 const feed = {
     feed: makeFeed,
-    configure    
+    configure
 }
 
-async function makeFeed (req, res, next){
+async function makeFeed (){
     if (!this.config)
-        next(new Error('No config provided! Call .config({config}) first.'));
+        return 'No config provided! Call .config({config}) first.';
     else {
         let feedContentData = await this.config.getFeedContent();
         if (!feedContentData) {
-            next(new Error('getFeedContent() returned nothing.'));
+            return 'getFeedContent() returned nothing.';
         } else if (Array.isArray(feedContentData) && feedContentData.length === 0) {
-            next(new Error('getFeedContent() returned empty array.'));
+            return 'getFeedContent() returned empty array.';
         } else if (!Array.isArray(feedContentData)) {
-            next(new Error(`getFeedContent() returned ${typeof feedContentData} instead of array.`));
+            return `getFeedContent() returned ${typeof feedContentData} instead of array.`;
         } else if (feedContentData.some(item => typeof(item) !== 'object')){
-            next(new Error('getFeedContent() should return array of objects.'));
+            return 'getFeedContent() should return array of objects.';
         } else {
-            let xml = serveRss(this.config, feedContentData);
-            res.status(200).send(xml);
-        }        
-        next();
-    }    
+            return serveRss(this.config, feedContentData);
+        }
+    }
 }
 
 function configure(config) {

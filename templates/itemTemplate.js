@@ -24,10 +24,6 @@ const itemTemplate = {
         type: 'number',
         required: true
     },
-    author: {                   // Publication author
-        type: 'string',
-        required: true
-    },
     category: {                 // Must be an array, can contain items from categoryList
         type: 'object',
         required: false

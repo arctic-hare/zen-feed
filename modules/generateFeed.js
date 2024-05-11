@@ -116,7 +116,7 @@ function generateItem(feedItem, useParser) {
     }
     //add content:encoded (full text)
     // if not using built-in parser
-    let contendData;
+    let contentData;
     if (useParser) {
         contentData = parse(feedItem.content_encoded);
     } else {
@@ -142,15 +142,11 @@ function filterContent(content){
 }
 
 function getXMLfeed(feedObj){
-    let xml = convert.js2xml(feedObj, {compact: false, spaces: 4});
-    return xml;
+    return convert.js2xml(feedObj, {compact: false, spaces: 4});
 }
 
 function serveRss(config, items){
-    let filteredItems = filterContent(items);
-    let feed = generateFeed(config, filteredItems);
-    let xml = getXMLfeed(feed);
-    return xml;
+    return getXMLfeed(generateFeed(config, filterContent(items)));
 }
 
 module.exports = {

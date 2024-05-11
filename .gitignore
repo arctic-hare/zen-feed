@@ -2,3 +2,5 @@ node_modules
 coverage
 .coveralls.yml
 sanitized.html
+.idea
+.vscode

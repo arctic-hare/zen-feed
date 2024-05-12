@@ -76,6 +76,9 @@ function generateItem(feedItem, useParser) {
         let ampLinkElement = textElement("amplink", feedItem.amplink);
         item.elements.push(ampLinkElement);
     }
+    //add guid
+    let guid = textElement("guid", feedItem.guid);
+    item.elements.push(guid);
     //add media:rating if present and contains correct value (othervise pass it)
     if (feedItem.media_rating && ['adult', 'nonadult'].includes(feedItem.media_rating)){
         let media_ratingElement = textElement("media:rating", feedItem.media_rating);
@@ -85,9 +88,6 @@ function generateItem(feedItem, useParser) {
     //add pubDate in rfc-882 (UTCString)
     let pubDateElement = textElement("pubDate", (new Date(feedItem.pubDate)).toUTCString());
     item.elements.push(pubDateElement);
-    //add author
-    let authorElement = textElement("author", feedItem.author);
-    item.elements.push(authorElement);
     //add categories
     for (cat of feedItem.category){
         if (categoriesList.includes(cat)) {

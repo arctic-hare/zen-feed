@@ -7,6 +7,10 @@ const itemTemplate = {
         type: 'string',
         required: true
     },
+    guid: {
+        type: 'string',
+        required: true
+    },
     pdalink: {                  // Mobile version URL
         type: 'string',
         required: false

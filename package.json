@@ -1,6 +1,6 @@
 {
   "name": "zen-feed",
-  "version": "1.0.1",
+  "version": "1.2.0",
   "description": "Express.js middleware for creating Yandex Zen RSS feed.",
   "main": "index.js",
   "scripts": {

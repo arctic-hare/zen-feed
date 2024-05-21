@@ -18,12 +18,8 @@ async function makeFeed (){
         let feedContentData = await this.config.getFeedContent();
         if (!feedContentData) {
             return 'getFeedContent() returned nothing.';
-        } else if (Array.isArray(feedContentData) && feedContentData.length === 0) {
-            return 'getFeedContent() returned empty array.';
         } else if (!Array.isArray(feedContentData)) {
             return `getFeedContent() returned ${typeof feedContentData} instead of array.`;
-        } else if (feedContentData.some(item => typeof(item) !== 'object')){
-            return 'getFeedContent() should return array of objects.';
         } else {
             return serveRss(this.config, feedContentData);
         }

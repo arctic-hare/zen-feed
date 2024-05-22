@@ -4,7 +4,7 @@ const categories = [
     'format-post',
     'index',
     'noindex',
-    'comment-all ',
+    'comment-all',
     'comment-subscribers',
     'comment-none',
     'advertisement-off',
